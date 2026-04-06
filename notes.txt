@@ -1,0 +1,1 @@
+Étape validée : le script de lecture vidéo fonctionne et affiche une erreur normale si la vidéo n’existe pas.
