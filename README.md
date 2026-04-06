@@ -1,0 +1,1 @@
+## Comparing different pipeline to choose for AugMentor 2.0
