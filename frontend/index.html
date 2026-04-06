@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video comparison — upload</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>Video comparison</h1>
+        <p class="subtitle">
+          Upload the expert reference and the learner recording. The comparison
+          pipeline will plug in here later.
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="card" aria-labelledby="expert-label">
+          <div class="card-head">
+            <h2 id="expert-label">Expert video</h2>
+            <span class="badge">Reference</span>
+          </div>
+          <label class="drop-zone" data-slot="expert">
+            <input
+              type="file"
+              id="expert-video"
+              name="expert"
+              accept="video/*"
+              hidden
+            />
+            <span class="drop-zone__icon" aria-hidden="true">▶</span>
+            <span class="drop-zone__text">Choose or drop a video file</span>
+            <span class="drop-zone__hint" id="expert-filename-hint">No file selected</span>
+          </label>
+          <video
+            id="expert-preview"
+            class="preview"
+            controls
+            playsinline
+            hidden
+          ></video>
+        </section>
+
+        <section class="card" aria-labelledby="learner-label">
+          <div class="card-head">
+            <h2 id="learner-label">Learner video</h2>
+            <span class="badge badge--learner">To compare</span>
+          </div>
+          <label class="drop-zone" data-slot="learner">
+            <input
+              type="file"
+              id="learner-video"
+              name="learner"
+              accept="video/*"
+              hidden
+            />
+            <span class="drop-zone__icon" aria-hidden="true">▶</span>
+            <span class="drop-zone__text">Choose or drop a video file</span>
+            <span class="drop-zone__hint" id="learner-filename-hint">No file selected</span>
+          </label>
+          <video
+            id="learner-preview"
+            class="preview"
+            controls
+            playsinline
+            hidden
+          ></video>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <button type="button" class="btn btn--primary" id="compare-btn" disabled>
+          Run comparison
+        </button>
+        <p class="footer-note">
+          Comparison is not wired yet — both videos must be selected first.
+        </p>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
