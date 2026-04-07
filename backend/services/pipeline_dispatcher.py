@@ -60,9 +60,12 @@ def _make_placeholder_runner(pipeline_name: PipelineName) -> Runner:
 #   REGISTRY[PipelineName.VLM_ONLY] = vlm_only_run
 # ---------------------------------------------------------------------------
 
+from backend.pipelines.vlm_only import run as vlm_only_run
+
 REGISTRY: Dict[PipelineName, Runner] = {
     member: _make_placeholder_runner(member) for member in PipelineName
 }
+REGISTRY[PipelineName.VLM_ONLY] = vlm_only_run
 
 
 # ---------------------------------------------------------------------------

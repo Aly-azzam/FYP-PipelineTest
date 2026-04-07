@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video comparison — upload</title>
+    <title>Video comparison - upload</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,8 +11,8 @@
       <header class="header">
         <h1>Video comparison</h1>
         <p class="subtitle">
-          Upload the expert reference and the learner recording. The comparison
-          pipeline will plug in here later.
+          Upload the expert reference and the learner recording, then run the
+          comparison.
         </p>
       </header>
 
@@ -74,10 +74,35 @@
         <button type="button" class="btn btn--primary" id="compare-btn" disabled>
           Run comparison
         </button>
-        <p class="footer-note">
-          Comparison is not wired yet — both videos must be selected first.
+        <p class="footer-note" id="compare-note">
+          Select both videos, then run the comparison.
         </p>
       </footer>
+
+      <section class="result card" id="result-panel" hidden aria-live="polite">
+        <div class="result-head">
+          <h2>Comparison output</h2>
+          <span class="badge" id="result-pipeline">vlm_only</span>
+        </div>
+        <p class="result-status" id="result-status">Waiting for videos.</p>
+        <div class="result-score" id="result-score" hidden>
+          <span class="result-score__label">Overall score</span>
+          <strong class="result-score__value" id="result-score-value">--</strong>
+        </div>
+        <p class="result-text" id="result-text"></p>
+        <div class="result-columns">
+          <div>
+            <h3>Strengths</h3>
+            <ul id="result-strengths" class="result-list"></ul>
+          </div>
+          <div>
+            <h3>Weaknesses</h3>
+            <ul id="result-weaknesses" class="result-list"></ul>
+          </div>
+        </div>
+        <div class="result-meta" id="result-meta"></div>
+        <ul id="result-warnings" class="result-list result-list--warnings"></ul>
+      </section>
     </div>
     <script src="app.js"></script>
   </body>
