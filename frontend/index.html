@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video comparison — upload</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=3" />
   </head>
   <body>
     <div class="page">
       <header class="header">
         <h1>Video comparison</h1>
         <p class="subtitle">
-          Upload the expert reference and the learner recording. The comparison
-          pipeline will plug in here later.
+          Upload the expert reference and learner recording, then run the
+          MediaPipe wrist comparison.
         </p>
       </header>
 
@@ -75,10 +75,11 @@
           Run comparison
         </button>
         <p class="footer-note">
-          Comparison is not wired yet — both videos must be selected first.
+          Select both videos, then run the MediaPipe wrist comparison.
         </p>
+        <pre id="result" class="result" hidden></pre>
       </footer>
     </div>
-    <script src="app.js"></script>
+    <script src="app.js?v=3"></script>
   </body>
 </html>

@@ -3,6 +3,7 @@
 from pathlib import PurePosixPath, PureWindowsPath
 from typing import Callable, Dict
 
+from backend.pipelines.mediapipe_vlm import run as run_mediapipe_vlm
 from backend.schemas.pipeline_schema import PipelineInput, PipelineName
 from backend.schemas.result_schema import (
     Explanation,
@@ -63,6 +64,7 @@ def _make_placeholder_runner(pipeline_name: PipelineName) -> Runner:
 REGISTRY: Dict[PipelineName, Runner] = {
     member: _make_placeholder_runner(member) for member in PipelineName
 }
+REGISTRY[PipelineName.MEDIAPIPE_VLM] = run_mediapipe_vlm
 
 
 # ---------------------------------------------------------------------------
