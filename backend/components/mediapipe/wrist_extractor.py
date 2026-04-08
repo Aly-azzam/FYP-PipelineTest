@@ -16,10 +16,21 @@ from backend.components.mediapipe.utils import (
 
 
 mp_hands = mp.solutions.hands
+mp_pose = mp.solutions.pose
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
 _WRIST_SMOOTHING_ALPHA = 0.35
+_DEFAULT_POSE_VISIBILITY_THRESHOLD = 0.5
+_ANNOTATION_OUTPUT_CANDIDATES = (
+    (".mp4", "avc1"),
+    (".mp4", "H264"),
+    (".webm", "VP80"),
+    (".webm", "VP90"),
+    (".mp4", "mp4v"),
+    (".avi", "MJPG"),
+    (".avi", "XVID"),
+)
 
 
 def _draw_wrist_marker(frame, wrist_coords: list[float], label: str, color) -> None:
@@ -39,6 +50,27 @@ def _draw_wrist_marker(frame, wrist_coords: list[float], label: str, color) -> N
     )
 
 
+def _create_video_writer(
+    output_path: str,
+    output_fps: float,
+    width: int,
+    height: int,
+):
+    requested_path = Path(output_path)
+    for extension, codec in _ANNOTATION_OUTPUT_CANDIDATES:
+        candidate_path = requested_path.with_suffix(extension)
+        writer = cv2.VideoWriter(
+            str(candidate_path),
+            cv2.VideoWriter_fourcc(*codec),
+            output_fps,
+            (width, height),
+        )
+        if writer.isOpened():
+            return writer, codec, str(candidate_path)
+        writer.release()
+    return None, None, None
+
+
 def _smooth_wrist_coords(
     wrist_coords: list[float],
     previous_coords: list[float] | None,
@@ -55,7 +87,7 @@ def _smooth_wrist_coords(
     return smoothed
 
 
-def _extract_wrist_from_processed_results(results) -> dict[str, Any]:
+def _extract_wrist_from_hand_results(results) -> dict[str, Any]:
     frame_result: dict[str, Any] = {
         "left_wrist": None,
         "right_wrist": None,
@@ -84,7 +116,85 @@ def _extract_wrist_from_processed_results(results) -> dict[str, Any]:
     return frame_result
 
 
-def extract_wrist_from_frame(frame, hands_processor) -> dict[str, Any]:
+def _extract_wrist_from_pose_results(
+    results,
+    visibility_threshold: float,
+) -> dict[str, Any]:
+    frame_result: dict[str, Any] = {
+        "left_wrist": None,
+        "right_wrist": None,
+        "left_wrist_visible": False,
+        "right_wrist_visible": False,
+    }
+
+    if not getattr(results, "pose_landmarks", None):
+        return frame_result
+
+    landmarks = results.pose_landmarks.landmark
+    left_wrist = landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value]
+    right_wrist = landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value]
+
+    left_visibility = float(getattr(left_wrist, "visibility", 0.0))
+    right_visibility = float(getattr(right_wrist, "visibility", 0.0))
+
+    if left_visibility > visibility_threshold:
+        frame_result["left_wrist"] = landmark_to_list(left_wrist)
+        frame_result["left_wrist_visible"] = True
+    if right_visibility > visibility_threshold:
+        frame_result["right_wrist"] = landmark_to_list(right_wrist)
+        frame_result["right_wrist_visible"] = True
+
+    return frame_result
+
+
+def _merge_pose_and_hand_wrist_results(
+    pose_result: dict[str, Any],
+    hand_result: dict[str, Any],
+) -> dict[str, Any]:
+    frame_result: dict[str, Any] = {
+        "left_wrist": None,
+        "right_wrist": None,
+        "left_wrist_visible": False,
+        "right_wrist_visible": False,
+        "left_wrist_source": "none",
+        "right_wrist_source": "none",
+        "wrist_source": "none",
+    }
+
+    for side in ("left", "right"):
+        wrist_key = f"{side}_wrist"
+        visible_key = f"{side}_wrist_visible"
+        source_key = f"{side}_wrist_source"
+
+        if pose_result.get(visible_key) and pose_result.get(wrist_key):
+            frame_result[wrist_key] = pose_result[wrist_key]
+            frame_result[visible_key] = True
+            frame_result[source_key] = "pose"
+        elif hand_result.get(visible_key) and hand_result.get(wrist_key):
+            frame_result[wrist_key] = hand_result[wrist_key]
+            frame_result[visible_key] = True
+            frame_result[source_key] = "hands"
+
+    if (
+        frame_result["left_wrist_source"] == "pose"
+        or frame_result["right_wrist_source"] == "pose"
+    ):
+        frame_result["wrist_source"] = "pose"
+    elif (
+        frame_result["left_wrist_source"] == "hands"
+        or frame_result["right_wrist_source"] == "hands"
+    ):
+        frame_result["wrist_source"] = "hands"
+
+    return frame_result
+
+
+def extract_wrist_from_frame(
+    frame,
+    hands_processor,
+    pose_processor,
+    pose_visibility_threshold: float = _DEFAULT_POSE_VISIBILITY_THRESHOLD,
+) -> dict[str, Any]:
     """
     Extract left/right wrist coordinates from a single frame.
 
@@ -96,8 +206,17 @@ def extract_wrist_from_frame(frame, hands_processor) -> dict[str, Any]:
     - right_wrist_visible
     """
     rgb_frame = bgr_to_rgb(frame)
-    results = hands_processor.process(rgb_frame)
-    return _extract_wrist_from_processed_results(results)
+    hand_results = hands_processor.process(rgb_frame)
+    pose_results = pose_processor.process(rgb_frame)
+    hand_frame_result = _extract_wrist_from_hand_results(hand_results)
+    pose_frame_result = _extract_wrist_from_pose_results(
+        pose_results,
+        pose_visibility_threshold,
+    )
+    return _merge_pose_and_hand_wrist_results(
+        pose_result=pose_frame_result,
+        hand_result=hand_frame_result,
+    )
 
 
 def _draw_hand_landmarks(frame, results) -> None:
@@ -120,6 +239,7 @@ def extract_wrist_from_video(
     min_detection_confidence: float = 0.5,
     min_tracking_confidence: float = 0.5,
     model_complexity: int = 1,
+    pose_visibility_threshold: float = _DEFAULT_POSE_VISIBILITY_THRESHOLD,
 ) -> dict[str, Any]:
     """
     Extract wrist data frame by frame from a video.
@@ -149,19 +269,29 @@ def extract_wrist_from_video(
 
     frames_output: list[dict[str, Any]] = []
     writer = None
+    selected_codec = None
     previous_wrists = {
         "Left": None,
         "Right": None,
     }
+    source_counts = {
+        "pose": 0,
+        "hands": 0,
+        "none": 0,
+    }
 
     if annotated_output_path and width > 0 and height > 0:
         output_fps = fps if fps > 0 else 30.0
-        writer = cv2.VideoWriter(
+        writer, selected_codec, selected_output_path = _create_video_writer(
             str(annotated_output_path),
-            cv2.VideoWriter_fourcc(*"avc1"),
             output_fps,
-            (width, height),
+            width,
+            height,
         )
+        if writer is None:
+            annotated_output_path = None
+        else:
+            annotated_output_path = selected_output_path
 
     with mp_hands.Hands(
         static_image_mode=False,
@@ -169,7 +299,12 @@ def extract_wrist_from_video(
         model_complexity=model_complexity,
         min_detection_confidence=min_detection_confidence,
         min_tracking_confidence=min_tracking_confidence,
-    ) as hands_processor:
+    ) as hands_processor, mp_pose.Pose(
+        static_image_mode=False,
+        model_complexity=model_complexity,
+        min_detection_confidence=min_detection_confidence,
+        min_tracking_confidence=min_tracking_confidence,
+    ) as pose_processor:
         frame_index = 0
 
         while True:
@@ -180,8 +315,19 @@ def extract_wrist_from_video(
             timestamp_sec = frame_index / fps if fps > 0 else None
 
             rgb_frame = bgr_to_rgb(frame)
-            results = hands_processor.process(rgb_frame)
-            frame_result = _extract_wrist_from_processed_results(results)
+            hand_results = hands_processor.process(rgb_frame)
+            pose_results = pose_processor.process(rgb_frame)
+            hand_frame_result = _extract_wrist_from_hand_results(hand_results)
+            pose_frame_result = _extract_wrist_from_pose_results(
+                pose_results,
+                pose_visibility_threshold,
+            )
+            frame_result = _merge_pose_and_hand_wrist_results(
+                pose_result=pose_frame_result,
+                hand_result=hand_frame_result,
+            )
+
+            source_counts[frame_result["wrist_source"]] += 1
 
             if frame_result["left_wrist_visible"] and frame_result["left_wrist"]:
                 frame_result["left_wrist"] = _smooth_wrist_coords(
@@ -206,7 +352,7 @@ def extract_wrist_from_video(
 
             if writer is not None:
                 annotated_frame = frame.copy()
-                _draw_hand_landmarks(annotated_frame, results)
+                _draw_hand_landmarks(annotated_frame, hand_results)
                 if frame_result["left_wrist_visible"] and frame_result["left_wrist"]:
                     _draw_wrist_marker(
                         annotated_frame,
@@ -258,7 +404,14 @@ def extract_wrist_from_video(
             "min_detection_confidence": min_detection_confidence,
             "min_tracking_confidence": min_tracking_confidence,
             "model_complexity": model_complexity,
+            "pose_visibility_threshold": pose_visibility_threshold,
+            "wrist_source_priority": ["pose", "hands", "none"],
+            "annotation_codec": selected_codec if annotated_output_path else None,
+            "annotation_extension": (
+                Path(annotated_output_path).suffix if annotated_output_path else None
+            ),
         },
+        "wrist_source_counts": source_counts,
         "rejected_left_wrist_jumps": rejected_left_wrist_jumps,
         "rejected_right_wrist_jumps": rejected_right_wrist_jumps,
         "interpolated_left_wrist_frames": interpolation_counts[
