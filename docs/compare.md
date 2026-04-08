@@ -939,16 +939,18 @@ If you want, I can now convert this into a **clean report-style version with hea
 
 
 ## Final ordered pipelines
-1. VLM only
-2. MediaPipe + VLM
-3. MediaPipe + DTW + VLM
-4. MediaPipe + V-JEPA + VLM
-5. MediaPipe + V-JEPA + DTW + VLM
-6. MediaPipe + SAM 2 + DTW + VLM
-7. MediaPipe + V-JEPA + SAM 2 + DTW + VLM
-8. MediaPipe + V-JEPA + Grounded SAM 2 + DTW + VLM
 
-Bonus: MediaPipe + optical flow + DTW + VLM
+1. VLM only
+2. Optical Flow + VLM
+3. Optical Flow + DTW + VLM
+4. V-JEPA + VLM
+5. V-JEPA + DTW + VLM
+6. SAM 2 + DTW + VLM
+7. V-JEPA + SAM 2 + DTW + VLM
+8. V-JEPA + Grounded SAM 2 + DTW + VLM
+9. Optical Flow + V-JEPA + DTW + VLM
+
+Documented failure baseline: MediaPipe + VLM (see `docs/MediaPipeFail.md`)
 ---
 
 ## Model / component table
