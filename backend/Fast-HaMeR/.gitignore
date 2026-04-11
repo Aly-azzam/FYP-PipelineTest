@@ -36,6 +36,7 @@ build/
 # Video pipeline I/O
 video_input/
 video_output/
+outputs/
 
 # Optional: paper PDF (uncomment if you host it elsewhere)
 # *.pdf

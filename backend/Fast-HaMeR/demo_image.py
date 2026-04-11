@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import argparse
+import json
 from pathlib import Path
 
 import cv2
@@ -121,6 +122,14 @@ def main():
     parser.add_argument(
         "--batch_size", type=int, default=1, help="Batch size for inference/fitting"
     )
+    parser.add_argument(
+        "--raw_json_out", type=str, default=None,
+        help="Path to write per-frame raw hand data JSON (used by wrapper)",
+    )
+    parser.add_argument(
+        "--export_vertices", action="store_true", default=False,
+        help="Include full mesh vertices in raw JSON output",
+    )
 
     args = parser.parse_args()
 
@@ -138,9 +147,12 @@ def main():
     # Make output directory if it does not exist
     os.makedirs(args.out_folder, exist_ok=True)
 
-    img_paths = [
+    img_paths = sorted(
         img for end in args.file_type for img in Path(args.img_folder).glob(end)
-    ]
+    )
+
+    collect_raw = args.raw_json_out is not None
+    raw_frames_data = []
 
     for index, img_path in enumerate(img_paths):
 
@@ -149,16 +161,23 @@ def main():
 
         bboxes = []
         is_right = []
+        hand_det_info = []
 
-        # iterate over left and right hand keypoints cluster to get bounding boxes around the hands
         for idx, hand_indices in enumerate([LEFT_HAND_INDICES, RIGHT_HAND_INDICES]):
-            # get the box and score for each hand
-            box, score = keypoints_to_bbox(
-                keypoints=keypoints[0, hand_indices], scores=scores[0, hand_indices]
-            )
+            hand_kpts = keypoints[0, hand_indices]
+            hand_scores_arr = scores[0, hand_indices]
+            box, score = keypoints_to_bbox(keypoints=hand_kpts, scores=hand_scores_arr)
             if box is not None:
                 bboxes.append(box)
                 is_right.append(1 if idx == 1 else 0)
+                hand_det_info.append({
+                    "kpts_2d": hand_kpts,
+                    "kpts_scores": hand_scores_arr,
+                    "bbox_conf": float(score),
+                    "bbox_xyxy": box,
+                })
+
+        frame_hands = []
 
         if len(bboxes) != 0:
             boxes = np.stack(bboxes)
@@ -225,6 +244,24 @@ def main():
                     all_cam_t.append(cam_t)
                     all_right.append(is_right)
 
+                    if collect_raw:
+                        j3d = out["pred_keypoints_3d"][n].detach().cpu().numpy()
+                        j3d[:, 0] = (2 * is_right - 1) * j3d[:, 0]
+                        det = hand_det_info[person_id]
+                        hand_rec = {
+                            "hand_index": person_id,
+                            "hand_side": "right" if float(is_right) > 0.5 else "left",
+                            "bbox_xyxy": [round(float(v), 2) for v in det["bbox_xyxy"]],
+                            "bbox_confidence": round(det["bbox_conf"], 4),
+                            "joints_2d": np.round(det["kpts_2d"], 2).tolist(),
+                            "joints_2d_scores": np.round(det["kpts_scores"].flatten(), 4).tolist(),
+                            "joints_3d_cam": np.round(j3d + cam_t, 6).tolist(),
+                            "cam_t_full": np.round(cam_t, 6).tolist(),
+                        }
+                        if args.export_vertices:
+                            hand_rec["vertices_3d_cam"] = np.round(verts + cam_t, 6).tolist()
+                        frame_hands.append(hand_rec)
+
             # Render the result
             renderer = MeshPyTorch3DRenderer(
                 model_cfg,
@@ -256,6 +293,17 @@ def main():
             cv2.imwrite(os.path.join(args.out_folder, f"{index}_all.jpg"), output_img)
         else:
             cv2.imwrite(os.path.join(args.out_folder, f"{index}_all.jpg"), frame)
+
+        if collect_raw:
+            raw_frames_data.append({
+                "frame_index": index,
+                "hands_detected": len(frame_hands),
+                "hands": frame_hands,
+            })
+
+    if collect_raw and args.raw_json_out:
+        with open(args.raw_json_out, "w", encoding="utf-8") as f:
+            json.dump(raw_frames_data, f, ensure_ascii=False)
 
 
 if __name__ == "__main__":
