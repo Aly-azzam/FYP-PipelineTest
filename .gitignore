@@ -1,4 +1,12 @@
+# Python
 .venv/
 __pycache__/
-outputs/
 *.pyc
+
+# Generated outputs
+outputs/
+benchmark_outputs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
