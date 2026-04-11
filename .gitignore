@@ -1,5 +1,34 @@
+# --- Large AI Assets (The 5.6 GB stuff) ---
+_DATA/
+data/
+*.ckpt
+*.pth
+*.pkl
+*.npz
+*.tar.gz
+
+# --- HaMeR Specific Outputs ---
+outputs/
+example_data/
+output_result.mp4
+
+# --- Python Environment & Caches ---
+__pycache__/
+*.py[cod]
+*$py.class
 .env
 .env.*
-__pycache__/
 .venv
+venv/
+.ipynb_checkpoints/
+
+# --- OS / IDE Clutter ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Compressed Files ---
 *.zip
+*.rar
+*.7z

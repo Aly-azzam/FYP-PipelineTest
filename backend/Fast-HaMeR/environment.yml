@@ -1,0 +1,22 @@
+name: fasthamer
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch=2.1.0
+  - torchvision=0.16.0
+  - torchaudio=2.1.0
+  - numpy=1.26.4
+  - pip:
+      - opencv-python==4.10.0.84
+      - webdataset==1.0.2
+      - rtmlib==0.0.15
+      - onnxruntime==1.23.2
+      - timm
+      - iopath
+      - fvcore
+      - ninja
+      - pyopengl
+      - pyrender
