@@ -33,5 +33,9 @@ build/
 *.swp
 *.swo
 
+# Video pipeline I/O
+video_input/
+video_output/
+
 # Optional: paper PDF (uncomment if you host it elsewhere)
 # *.pdf
