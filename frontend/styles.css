@@ -155,6 +155,32 @@ body {
   gap: 0.75rem;
 }
 
+.pipeline-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: min(360px, 100%);
+}
+
+.pipeline-picker label {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.pipeline-select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+}
+
+.pipeline-select:disabled {
+  opacity: 0.65;
+}
+
 .btn {
   font-family: inherit;
   font-size: 0.95rem;
@@ -231,6 +257,28 @@ body {
 
 .result-score__value {
   font-size: 1.5rem;
+}
+
+.result-metrics {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.result-metrics__label {
+  font-size: 0.85rem;
+}
+
+.result-metrics__value {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.result-fallback {
+  margin: 0;
+  color: #f2bf61;
+  font-size: 0.85rem;
 }
 
 .result-text {

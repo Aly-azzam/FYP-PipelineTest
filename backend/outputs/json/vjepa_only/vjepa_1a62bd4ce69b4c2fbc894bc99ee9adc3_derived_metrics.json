@@ -1,0 +1,347 @@
+{
+  "run": {
+    "run_id": "1a62bd4ce69b4c2fbc894bc99ee9adc3",
+    "pipeline_name": "vjepa_only",
+    "processing_time_sec": 743.0909462,
+    "created_at": "2026-04-12T04:24:06.665186",
+    "component_notes": {
+      "pipeline": "vjepa_only_pipeline",
+      "scoring": "hungarian_segment_match_semantic_similarity_scoring",
+      "embedding": "vjepa2_1_encoder"
+    }
+  },
+  "source_files": {
+    "expert_video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\expert-f9c4aae8dd9c42f88607f744771bdc46.mp4",
+    "learner_video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\learner-c026067d84324679b312419cf4f9ae5a.mp4",
+    "main_result_json": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\json\\vjepa_only\\vjepa_1a62bd4ce69b4c2fbc894bc99ee9adc3.json"
+  },
+  "summary_metrics": {
+    "overall_score": 0.0,
+    "semantic_similarity": 0.0,
+    "mean_segment_similarity_raw": 0.9510783031582832,
+    "min_segment_similarity_raw": 0.9393077492713928,
+    "sim_baseline": 0.96,
+    "sim_range": 0.040000000000000036,
+    "mean_segment_similarity": 0.0,
+    "min_segment_similarity": 0.0,
+    "bottom_k": 4,
+    "bottom_k_mean": 0.0,
+    "segment_similarity_variance": 0.0,
+    "segment_similarity_std": 0.0,
+    "segment_consistency": 1.0,
+    "similarity_gap": 0.0,
+    "mismatch_penalty": 0.0,
+    "weighted_similarity": 0.0,
+    "final_similarity": 0.0,
+    "linear_score": 0.0,
+    "calibrated_score": 0.0,
+    "score_gamma": 3.0
+  },
+  "embedding_mode": {
+    "real_encoder_used": true,
+    "fallback_used": false,
+    "embedding_note": "vjepa2_1_encoder",
+    "model_name": "vjepa2_1_vit_base_384",
+    "frames_per_clip": 30,
+    "num_segments": 8,
+    "device": "cpu",
+    "last_error": null
+  },
+  "segment_similarity_summary": {
+    "segment_count": 8,
+    "similarity_matrix": [
+      [
+        0.9562163949012756,
+        0.9563518762588501,
+        0.953767716884613,
+        0.9448120594024658,
+        0.9511678218841553,
+        0.9468026161193848,
+        0.954013466835022,
+        0.95046466588974
+      ],
+      [
+        0.9578681588172913,
+        0.9596785306930542,
+        0.9562574625015259,
+        0.9490999579429626,
+        0.9546869397163391,
+        0.9503515958786011,
+        0.9565847516059875,
+        0.9509246349334717
+      ],
+      [
+        0.9501398205757141,
+        0.9482465982437134,
+        0.940109133720398,
+        0.9393077492713928,
+        0.9449251890182495,
+        0.9351733326911926,
+        0.9405707120895386,
+        0.9259531497955322
+      ],
+      [
+        0.9607524275779724,
+        0.9627694487571716,
+        0.9595814943313599,
+        0.9538607597351074,
+        0.9589343667030334,
+        0.9542990922927856,
+        0.959230899810791,
+        0.9541309475898743
+      ],
+      [
+        0.9542736411094666,
+        0.9574902057647705,
+        0.9539899826049805,
+        0.9492989182472229,
+        0.9537593126296997,
+        0.9500177502632141,
+        0.9532567262649536,
+        0.9479082822799683
+      ],
+      [
+        0.9442148208618164,
+        0.940974235534668,
+        0.9320801496505737,
+        0.9314336776733398,
+        0.9374115467071533,
+        0.9264411926269531,
+        0.9332969784736633,
+        0.9163945913314819
+      ],
+      [
+        0.9603643417358398,
+        0.957470715045929,
+        0.9526204466819763,
+        0.9475359916687012,
+        0.9538455009460449,
+        0.9461005330085754,
+        0.954045295715332,
+        0.9442411065101624
+      ],
+      [
+        0.9541729688644409,
+        0.9546096920967102,
+        0.9503551721572876,
+        0.9444977641105652,
+        0.9497619271278381,
+        0.9443278908729553,
+        0.9514048099517822,
+        0.9432929158210754
+      ]
+    ],
+    "chosen_segment_matches": [
+      {
+        "expert_segment": 0,
+        "learner_segment": 7,
+        "similarity": 0.95046466588974
+      },
+      {
+        "expert_segment": 1,
+        "learner_segment": 6,
+        "similarity": 0.9565847516059875
+      },
+      {
+        "expert_segment": 2,
+        "learner_segment": 3,
+        "similarity": 0.9393077492713928
+      },
+      {
+        "expert_segment": 3,
+        "learner_segment": 2,
+        "similarity": 0.9595814943313599
+      },
+      {
+        "expert_segment": 4,
+        "learner_segment": 5,
+        "similarity": 0.9500177502632141
+      },
+      {
+        "expert_segment": 5,
+        "learner_segment": 0,
+        "similarity": 0.9442148208618164
+      },
+      {
+        "expert_segment": 6,
+        "learner_segment": 4,
+        "similarity": 0.9538455009460449
+      },
+      {
+        "expert_segment": 7,
+        "learner_segment": 1,
+        "similarity": 0.9546096920967102
+      }
+    ],
+    "worst_matched_segment": {
+      "expert_segment": 2,
+      "learner_segment": 3,
+      "similarity": 0.9393077492713928
+    },
+    "worst_segment_index": 2,
+    "segment_similarities_raw": [
+      0.95046466588974,
+      0.9565847516059875,
+      0.9393077492713928,
+      0.9595814943313599,
+      0.9500177502632141,
+      0.9442148208618164,
+      0.9538455009460449,
+      0.9546096920967102
+    ],
+    "segment_similarities_adjusted": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "per_segment_metrics": [
+    {
+      "segment_index": 0,
+      "expert_segment_start_time_sec": 0.0,
+      "expert_segment_end_time_sec": 3.133250985545335,
+      "learner_segment_start_time_sec": 22.458796623376625,
+      "learner_segment_end_time_sec": 25.662428831168832,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.95046466588974,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 24.699201583862305,
+      "learner_embedding_norm": 24.530540466308594,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 1,
+      "expert_segment_start_time_sec": 3.1665834428383706,
+      "expert_segment_end_time_sec": 6.299834428383706,
+      "learner_segment_start_time_sec": 19.255164415584417,
+      "learner_segment_end_time_sec": 22.425425454545454,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.9565847516059875,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 24.83318519592285,
+      "learner_embedding_norm": 24.2333927154541,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 2,
+      "expert_segment_start_time_sec": 6.333166885676741,
+      "expert_segment_end_time_sec": 9.466417871222076,
+      "learner_segment_start_time_sec": 9.610896623376624,
+      "learner_segment_end_time_sec": 12.814528831168833,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.9393077492713928,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 24.4359130859375,
+      "learner_embedding_norm": 24.387224197387695,
+      "worst_segment": true
+    },
+    {
+      "segment_index": 3,
+      "expert_segment_start_time_sec": 9.499750328515113,
+      "expert_segment_end_time_sec": 12.633001314060447,
+      "learner_segment_start_time_sec": 6.407264415584416,
+      "learner_segment_end_time_sec": 9.577525454545455,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.9595814943313599,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 24.651866912841797,
+      "learner_embedding_norm": 24.157657623291016,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 4,
+      "expert_segment_start_time_sec": 12.666333771353482,
+      "expert_segment_end_time_sec": 15.799584756898817,
+      "learner_segment_start_time_sec": 16.05153220779221,
+      "learner_segment_end_time_sec": 19.221793246753247,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.9500177502632141,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 25.04998016357422,
+      "learner_embedding_norm": 24.673301696777344,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 5,
+      "expert_segment_start_time_sec": 15.832917214191854,
+      "expert_segment_end_time_sec": 18.966168199737186,
+      "learner_segment_start_time_sec": 0.0,
+      "learner_segment_end_time_sec": 3.1702610389610393,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.9442148208618164,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 24.52068519592285,
+      "learner_embedding_norm": 23.90180015563965,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 6,
+      "expert_segment_start_time_sec": 18.999500657030225,
+      "expert_segment_end_time_sec": 22.13275164257556,
+      "learner_segment_start_time_sec": 12.847900000000001,
+      "learner_segment_end_time_sec": 16.01816103896104,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.9538455009460449,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 24.397491455078125,
+      "learner_embedding_norm": 24.20660400390625,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 7,
+      "expert_segment_start_time_sec": 22.166084099868595,
+      "expert_segment_end_time_sec": 25.332667542706965,
+      "learner_segment_start_time_sec": 3.203632207792208,
+      "learner_segment_end_time_sec": 6.373893246753247,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity_raw": 0.9546096920967102,
+      "cosine_similarity_adjusted": 0.0,
+      "expert_embedding_norm": 24.74435043334961,
+      "learner_embedding_norm": 24.012062072753906,
+      "worst_segment": false
+    }
+  ],
+  "video_debug": {
+    "expert": {
+      "video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\expert-f9c4aae8dd9c42f88607f744771bdc46.mp4",
+      "total_frames": 761,
+      "fps": 30.00078845698967,
+      "duration_sec": 25.366
+    },
+    "learner": {
+      "video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\learner-c026067d84324679b312419cf4f9ae5a.mp4",
+      "total_frames": 770,
+      "fps": 29.965986659298405,
+      "duration_sec": 25.695800000000002
+    }
+  }
+}

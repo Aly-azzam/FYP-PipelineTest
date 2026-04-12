@@ -1,0 +1,179 @@
+{
+  "run": {
+    "run_id": "bb50ab5836484cffaf2fa2403adc7896",
+    "pipeline_name": "vjepa_only",
+    "processing_time_sec": null,
+    "created_at": "2026-04-12T00:32:47.106491",
+    "component_notes": {
+      "pipeline": "vjepa_only_pipeline",
+      "scoring": "monotonic_segment_match_semantic_similarity_scoring",
+      "embedding": "vjepa2_1_encoder"
+    }
+  },
+  "source_files": {
+    "expert_video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\expert-6d5628dc87b7414e84a4a43132e728f3.mp4",
+    "learner_video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\learner-1e431e3bdf5b4814be4e09c77f8614de.mp4",
+    "main_result_json": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\json\\vjepa_only\\vjepa_bb50ab5836484cffaf2fa2403adc7896.json"
+  },
+  "summary_metrics": {
+    "overall_score": 95.48155351951402,
+    "semantic_similarity": 0.9846468617055343,
+    "mean_segment_similarity": 0.9878361076116562,
+    "min_segment_similarity": 0.9856867790222168,
+    "segment_similarity_variance": 2.497901097298083e-06,
+    "segment_similarity_std": 0.0015804749594024207,
+    "segment_consistency": 0.9984195250405976,
+    "weighted_similarity": 0.9861166447401046,
+    "linear_score": 99.23234308527671,
+    "calibrated_score": 95.48155351951402
+  },
+  "embedding_mode": {
+    "real_encoder_used": true,
+    "fallback_used": false,
+    "embedding_note": "vjepa2_1_encoder",
+    "model_name": "vjepa2_1_vit_base_384",
+    "frames_per_clip": 30,
+    "num_segments": 4,
+    "device": "cpu",
+    "last_error": null
+  },
+  "segment_similarity_summary": {
+    "segment_count": 4,
+    "similarity_matrix": [
+      [
+        0.9892314672470093,
+        0.9886794090270996,
+        0.989551842212677,
+        0.9858697056770325
+      ],
+      [
+        0.9825263619422913,
+        0.987572431564331,
+        0.9847761988639832,
+        0.9869725704193115
+      ],
+      [
+        0.9773372411727905,
+        0.9843211770057678,
+        0.9810507297515869,
+        0.9856867790222168
+      ],
+      [
+        0.9860644936561584,
+        0.9904081225395203,
+        0.9889801144599915,
+        0.9891332387924194
+      ]
+    ],
+    "chosen_segment_matches": [
+      {
+        "expert_segment": 0,
+        "learner_segment": 2,
+        "similarity": 0.989551842212677
+      },
+      {
+        "expert_segment": 1,
+        "learner_segment": 3,
+        "similarity": 0.9869725704193115
+      },
+      {
+        "expert_segment": 2,
+        "learner_segment": 3,
+        "similarity": 0.9856867790222168
+      },
+      {
+        "expert_segment": 3,
+        "learner_segment": 3,
+        "similarity": 0.9891332387924194
+      }
+    ],
+    "worst_matched_segment": {
+      "expert_segment": 2,
+      "learner_segment": 3,
+      "similarity": 0.9856867790222168
+    },
+    "worst_segment_index": 2,
+    "segment_similarities": [
+      0.989551842212677,
+      0.9869725704193115,
+      0.9856867790222168,
+      0.9891332387924194
+    ]
+  },
+  "per_segment_metrics": [
+    {
+      "segment_index": 0,
+      "expert_segment_start_time_sec": 0.0,
+      "expert_segment_end_time_sec": 6.299834428383706,
+      "learner_segment_start_time_sec": 11.4665,
+      "learner_segment_end_time_sec": 17.16641715116279,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity": 0.989551842212677,
+      "expert_embedding_norm": 24.636878967285156,
+      "learner_embedding_norm": 24.608234405517578,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 1,
+      "expert_segment_start_time_sec": 6.333166885676741,
+      "expert_segment_end_time_sec": 12.633001314060447,
+      "learner_segment_start_time_sec": 17.19975,
+      "learner_segment_end_time_sec": 22.89966715116279,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity": 0.9869725704193115,
+      "expert_embedding_norm": 24.407506942749023,
+      "learner_embedding_norm": 24.663259506225586,
+      "worst_segment": false
+    },
+    {
+      "segment_index": 2,
+      "expert_segment_start_time_sec": 12.666333771353482,
+      "expert_segment_end_time_sec": 18.966168199737186,
+      "learner_segment_start_time_sec": 17.19975,
+      "learner_segment_end_time_sec": 22.89966715116279,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity": 0.9856867790222168,
+      "expert_embedding_norm": 24.623212814331055,
+      "learner_embedding_norm": 24.663259506225586,
+      "worst_segment": true
+    },
+    {
+      "segment_index": 3,
+      "expert_segment_start_time_sec": 18.999500657030225,
+      "expert_segment_end_time_sec": 25.332667542706965,
+      "learner_segment_start_time_sec": 17.19975,
+      "learner_segment_end_time_sec": 22.89966715116279,
+      "frames_used": {
+        "expert": 30,
+        "learner": 30
+      },
+      "cosine_similarity": 0.9891332387924194,
+      "expert_embedding_norm": 24.47187614440918,
+      "learner_embedding_norm": 24.663259506225586,
+      "worst_segment": false
+    }
+  ],
+  "video_debug": {
+    "expert": {
+      "video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\expert-6d5628dc87b7414e84a4a43132e728f3.mp4",
+      "total_frames": 761,
+      "fps": 30.00078845698967,
+      "duration_sec": 25.366
+    },
+    "learner": {
+      "video_path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\learner-1e431e3bdf5b4814be4e09c77f8614de.mp4",
+      "total_frames": 688,
+      "fps": 30.000436052849604,
+      "duration_sec": 22.933
+    }
+  }
+}

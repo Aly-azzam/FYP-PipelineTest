@@ -1,0 +1,27 @@
+# AugMentor pipeline demo — Python dependencies
+# Install: pip install -r requirements.txt
+#
+# PyTorch: default below is CPU-friendly. For CUDA, install torch from:
+#   https://pytorch.org/get-started/locally/
+# (then pip install the rest from this file excluding the torch line)
+
+# Web API
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# Schemas / validation
+pydantic>=2.5.0
+
+# Env (Gemini API key, etc.)
+python-dotenv>=1.0.0
+
+# Numerics & video
+numpy>=1.26.0
+opencv-python-headless>=4.9.0
+scipy>=1.11.0
+
+# V-JEPA (torch.hub + inference)
+torch>=2.2.0
+
+# VLM pipeline (`vlm_only`) — Google Gemini
+google-genai>=1.0.0

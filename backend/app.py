@@ -32,9 +32,27 @@ def health():
     return {"status": "ok"}
 
 
+# Stable UI order (subset of PipelineName). Any extra enum values are appended sorted.
+_PIPELINE_LIST_ORDER = (
+    "vlm_only",
+    "vjepa_only",
+    "mediapipe_vlm",
+    "mediapipe_dtw_vlm",
+    "mediapipe_vjepa_vlm",
+    "mediapipe_vjepa_dtw_vlm",
+    "mediapipe_sam2_dtw_vlm",
+    "mediapipe_vjepa_sam2_dtw_vlm",
+    "mediapipe_vjepa_grounded_sam2_dtw_vlm",
+    "mediapipe_optical_flow_dtw_vlm",
+)
+
+
 @app.get("/pipelines")
 def list_pipelines():
-    return {"pipelines": [p.value for p in PipelineName]}
+    known = {p.value for p in PipelineName}
+    ordered = [name for name in _PIPELINE_LIST_ORDER if name in known]
+    rest = sorted(known - set(ordered))
+    return {"pipelines": ordered + rest}
 
 
 @app.post("/compare", response_model=PipelineResult)
@@ -85,4 +103,4 @@ def compare_upload(
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("backend.app:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("backend.app:app", host="127.0.0.1", port=8001, reload=True)

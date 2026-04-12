@@ -71,6 +71,12 @@
       </main>
 
       <footer class="footer">
+        <div class="pipeline-picker">
+          <label for="pipeline-select">Pipeline</label>
+          <select id="pipeline-select" class="pipeline-select" disabled>
+            <option value="">Loading pipelines...</option>
+          </select>
+        </div>
         <button type="button" class="btn btn--primary" id="compare-btn" disabled>
           Run comparison
         </button>
@@ -86,9 +92,32 @@
         </div>
         <p class="result-status" id="result-status">Waiting for videos.</p>
         <div class="result-score" id="result-score" hidden>
-          <span class="result-score__label">Overall score</span>
+          <span class="result-score__label" id="result-score-label">Overall score</span>
           <strong class="result-score__value" id="result-score-value">--</strong>
         </div>
+        <div class="result-metrics" id="result-metrics" hidden>
+          <span class="result-metrics__label">Semantic similarity</span>
+          <strong class="result-metrics__value" id="result-semantic-similarity">--</strong>
+        </div>
+        <div class="result-metrics" id="result-segment-metrics" hidden>
+          <span class="result-metrics__label">
+            Segment metrics:
+            mean <strong class="result-metrics__value" id="result-mean-segment-similarity">--</strong>
+            min <strong class="result-metrics__value" id="result-min-segment-similarity">--</strong>
+            consistency <strong class="result-metrics__value" id="result-segment-consistency">--</strong>
+          </span>
+        </div>
+        <div class="result-metrics" id="result-debug-metrics" hidden>
+          <span class="result-metrics__label">
+            Debug:
+            variance <strong class="result-metrics__value" id="result-segment-variance">--</strong>
+            weighted <strong class="result-metrics__value" id="result-weighted-similarity">--</strong>
+            worst segment <strong class="result-metrics__value" id="result-worst-segment-index">--</strong>
+          </span>
+        </div>
+        <p class="result-fallback" id="result-fallback" hidden>
+          Fallback embedding mode is active for this pipeline.
+        </p>
         <p class="result-text" id="result-text"></p>
         <div class="result-columns">
           <div>

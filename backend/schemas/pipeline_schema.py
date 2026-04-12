@@ -8,6 +8,8 @@ from pydantic import BaseModel, Field
 
 class PipelineName(str, Enum):
     VLM_ONLY = "vlm_only"
+    # Added for semantic baseline pipeline using V-JEPA features.
+    VJEPA_ONLY = "vjepa_only"
     MEDIAPIPE_VLM = "mediapipe_vlm"
     MEDIAPIPE_DTW_VLM = "mediapipe_dtw_vlm"
     MEDIAPIPE_VJEPA_VLM = "mediapipe_vjepa_vlm"

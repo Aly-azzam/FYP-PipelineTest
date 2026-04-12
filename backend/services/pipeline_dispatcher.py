@@ -11,6 +11,9 @@ from backend.schemas.result_schema import (
     VideoMeta,
 )
 
+from backend.pipelines.vlm_only import run as vlm_only_run
+from backend.pipelines.vjepa_only import run as vjepa_only_run
+
 Runner = Callable[[PipelineInput], PipelineResult]
 
 
@@ -54,18 +57,15 @@ def _make_placeholder_runner(pipeline_name: PipelineName) -> Runner:
 # Pipeline registry
 # ---------------------------------------------------------------------------
 # Each entry maps a PipelineName to a runner callable.
-# Replace individual placeholders with real imports as pipelines are built,
-# e.g.:
-#   from backend.pipelines.vlm_only import run as vlm_only_run
-#   REGISTRY[PipelineName.VLM_ONLY] = vlm_only_run
+# Replace individual placeholders with real imports as pipelines are built.
 # ---------------------------------------------------------------------------
-
-from backend.pipelines.vlm_only import run as vlm_only_run
 
 REGISTRY: Dict[PipelineName, Runner] = {
     member: _make_placeholder_runner(member) for member in PipelineName
 }
+
 REGISTRY[PipelineName.VLM_ONLY] = vlm_only_run
+REGISTRY[PipelineName.VJEPA_ONLY] = vjepa_only_run
 
 
 # ---------------------------------------------------------------------------

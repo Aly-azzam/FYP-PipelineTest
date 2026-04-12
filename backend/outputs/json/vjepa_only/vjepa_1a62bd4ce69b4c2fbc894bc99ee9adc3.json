@@ -1,0 +1,241 @@
+{
+  "run": {
+    "run_id": "1a62bd4ce69b4c2fbc894bc99ee9adc3",
+    "pipeline_name": "vjepa_only",
+    "processing_time_sec": 743.0909462,
+    "created_at": "2026-04-12T04:24:06.665186",
+    "component_notes": {
+      "pipeline": "vjepa_only_pipeline",
+      "scoring": "hungarian_segment_match_semantic_similarity_scoring",
+      "embedding": "vjepa2_1_encoder"
+    }
+  },
+  "expert_video": {
+    "filename": "expert-f9c4aae8dd9c42f88607f744771bdc46.mp4",
+    "path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\expert-f9c4aae8dd9c42f88607f744771bdc46.mp4",
+    "duration_sec": 25.366,
+    "fps": 30.00078845698967,
+    "width": 480,
+    "height": 368
+  },
+  "learner_video": {
+    "filename": "learner-c026067d84324679b312419cf4f9ae5a.mp4",
+    "path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\learner-c026067d84324679b312419cf4f9ae5a.mp4",
+    "duration_sec": 25.695800000000002,
+    "fps": 29.965986659298405,
+    "width": 1280,
+    "height": 720
+  },
+  "overall_score": 0.0,
+  "metrics": {
+    "joint_angle_deviation": null,
+    "trajectory_deviation": null,
+    "velocity_difference": null,
+    "tool_alignment_deviation": null,
+    "dtw_cost": null,
+    "semantic_similarity": 0.0,
+    "optical_flow_similarity": null,
+    "extra": {
+      "segment_count": 8,
+      "similarity_matrix": [
+        [
+          0.9562163949012756,
+          0.9563518762588501,
+          0.953767716884613,
+          0.9448120594024658,
+          0.9511678218841553,
+          0.9468026161193848,
+          0.954013466835022,
+          0.95046466588974
+        ],
+        [
+          0.9578681588172913,
+          0.9596785306930542,
+          0.9562574625015259,
+          0.9490999579429626,
+          0.9546869397163391,
+          0.9503515958786011,
+          0.9565847516059875,
+          0.9509246349334717
+        ],
+        [
+          0.9501398205757141,
+          0.9482465982437134,
+          0.940109133720398,
+          0.9393077492713928,
+          0.9449251890182495,
+          0.9351733326911926,
+          0.9405707120895386,
+          0.9259531497955322
+        ],
+        [
+          0.9607524275779724,
+          0.9627694487571716,
+          0.9595814943313599,
+          0.9538607597351074,
+          0.9589343667030334,
+          0.9542990922927856,
+          0.959230899810791,
+          0.9541309475898743
+        ],
+        [
+          0.9542736411094666,
+          0.9574902057647705,
+          0.9539899826049805,
+          0.9492989182472229,
+          0.9537593126296997,
+          0.9500177502632141,
+          0.9532567262649536,
+          0.9479082822799683
+        ],
+        [
+          0.9442148208618164,
+          0.940974235534668,
+          0.9320801496505737,
+          0.9314336776733398,
+          0.9374115467071533,
+          0.9264411926269531,
+          0.9332969784736633,
+          0.9163945913314819
+        ],
+        [
+          0.9603643417358398,
+          0.957470715045929,
+          0.9526204466819763,
+          0.9475359916687012,
+          0.9538455009460449,
+          0.9461005330085754,
+          0.954045295715332,
+          0.9442411065101624
+        ],
+        [
+          0.9541729688644409,
+          0.9546096920967102,
+          0.9503551721572876,
+          0.9444977641105652,
+          0.9497619271278381,
+          0.9443278908729553,
+          0.9514048099517822,
+          0.9432929158210754
+        ]
+      ],
+      "chosen_segment_matches": [
+        {
+          "expert_segment": 0,
+          "learner_segment": 7,
+          "similarity": 0.95046466588974
+        },
+        {
+          "expert_segment": 1,
+          "learner_segment": 6,
+          "similarity": 0.9565847516059875
+        },
+        {
+          "expert_segment": 2,
+          "learner_segment": 3,
+          "similarity": 0.9393077492713928
+        },
+        {
+          "expert_segment": 3,
+          "learner_segment": 2,
+          "similarity": 0.9595814943313599
+        },
+        {
+          "expert_segment": 4,
+          "learner_segment": 5,
+          "similarity": 0.9500177502632141
+        },
+        {
+          "expert_segment": 5,
+          "learner_segment": 0,
+          "similarity": 0.9442148208618164
+        },
+        {
+          "expert_segment": 6,
+          "learner_segment": 4,
+          "similarity": 0.9538455009460449
+        },
+        {
+          "expert_segment": 7,
+          "learner_segment": 1,
+          "similarity": 0.9546096920967102
+        }
+      ],
+      "worst_matched_segment": {
+        "expert_segment": 2,
+        "learner_segment": 3,
+        "similarity": 0.9393077492713928
+      },
+      "worst_segment_index": 2,
+      "segment_similarities_raw": [
+        0.95046466588974,
+        0.9565847516059875,
+        0.9393077492713928,
+        0.9595814943313599,
+        0.9500177502632141,
+        0.9442148208618164,
+        0.9538455009460449,
+        0.9546096920967102
+      ],
+      "mean_segment_similarity_raw": 0.9510783031582832,
+      "min_segment_similarity_raw": 0.9393077492713928,
+      "sim_baseline": 0.96,
+      "sim_range": 0.040000000000000036,
+      "segment_similarities_adjusted": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_segment_similarity": 0.0,
+      "min_segment_similarity": 0.0,
+      "bottom_k": 4,
+      "bottom_k_mean": 0.0,
+      "segment_similarity_variance": 0.0,
+      "segment_similarity_std": 0.0,
+      "segment_consistency": 1.0,
+      "weighted_similarity": 0.0,
+      "similarity_gap": 0.0,
+      "mismatch_penalty": 0.0,
+      "final_similarity": 0.0,
+      "linear_score": 0.0,
+      "score_gamma": 3.0,
+      "calibrated_score": 0.0,
+      "score_bottom_k_weight": 0.6,
+      "score_mean_weight": 0.4,
+      "score_gap_penalty_weight": 0.3,
+      "score_std_penalty_weight": 0.2,
+      "scoring_note": "temporary heuristic, not a validated rubric"
+    }
+  },
+  "confidences": {
+    "overall": 0.72,
+    "same_task": null,
+    "score": 0.72,
+    "explanation": null
+  },
+  "explanation": {
+    "text": "This comparison uses real V-JEPA 2.1 encoder embeddings on multiple temporal segments from the expert and learner clips. Segment matching uses the Hungarian algorithm for optimal one-to-one assignment (no segment reuse). The final similarity is driven by the worst-half of matched segments plus gap and spread penalties, and the 0-100 score uses a steep nonlinear calibration (gamma=8). This remains a temporary heuristic.",
+    "strengths": [
+      "Uses real V-JEPA 2.1 encoder embeddings",
+      "Segment-wise semantic similarity based comparison with no external VLM used"
+    ],
+    "weaknesses": [
+      "Temporal alignment is still coarse because matching is segment-by-segment",
+      "This remains a semantic similarity signal rather than a calibrated skill rubric"
+    ],
+    "raw_vlm_output": null,
+    "structured_notes": {
+      "real_encoder_used": true,
+      "fallback_used": false,
+      "worst_segment_index": 2,
+      "segment_count": 8,
+      "frames_per_clip": 30
+    }
+  },
+  "warnings": []
+}

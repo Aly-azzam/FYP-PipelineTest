@@ -1,0 +1,139 @@
+{
+  "run": {
+    "run_id": "bb50ab5836484cffaf2fa2403adc7896",
+    "pipeline_name": "vjepa_only",
+    "processing_time_sec": null,
+    "created_at": "2026-04-12T00:32:47.106491",
+    "component_notes": {
+      "pipeline": "vjepa_only_pipeline",
+      "scoring": "monotonic_segment_match_semantic_similarity_scoring",
+      "embedding": "vjepa2_1_encoder"
+    }
+  },
+  "expert_video": {
+    "filename": "expert-6d5628dc87b7414e84a4a43132e728f3.mp4",
+    "path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\expert-6d5628dc87b7414e84a4a43132e728f3.mp4",
+    "duration_sec": null,
+    "fps": null,
+    "width": null,
+    "height": null
+  },
+  "learner_video": {
+    "filename": "learner-1e431e3bdf5b4814be4e09c77f8614de.mp4",
+    "path": "C:\\Users\\user\\Downloads\\FYP-PipelineTest-1\\backend\\outputs\\uploads\\learner-1e431e3bdf5b4814be4e09c77f8614de.mp4",
+    "duration_sec": null,
+    "fps": null,
+    "width": null,
+    "height": null
+  },
+  "overall_score": 95.48155351951402,
+  "metrics": {
+    "joint_angle_deviation": null,
+    "trajectory_deviation": null,
+    "velocity_difference": null,
+    "tool_alignment_deviation": null,
+    "dtw_cost": null,
+    "semantic_similarity": 0.9846468617055343,
+    "optical_flow_similarity": null,
+    "extra": {
+      "segment_count": 4,
+      "similarity_matrix": [
+        [
+          0.9892314672470093,
+          0.9886794090270996,
+          0.989551842212677,
+          0.9858697056770325
+        ],
+        [
+          0.9825263619422913,
+          0.987572431564331,
+          0.9847761988639832,
+          0.9869725704193115
+        ],
+        [
+          0.9773372411727905,
+          0.9843211770057678,
+          0.9810507297515869,
+          0.9856867790222168
+        ],
+        [
+          0.9860644936561584,
+          0.9904081225395203,
+          0.9889801144599915,
+          0.9891332387924194
+        ]
+      ],
+      "chosen_segment_matches": [
+        {
+          "expert_segment": 0,
+          "learner_segment": 2,
+          "similarity": 0.989551842212677
+        },
+        {
+          "expert_segment": 1,
+          "learner_segment": 3,
+          "similarity": 0.9869725704193115
+        },
+        {
+          "expert_segment": 2,
+          "learner_segment": 3,
+          "similarity": 0.9856867790222168
+        },
+        {
+          "expert_segment": 3,
+          "learner_segment": 3,
+          "similarity": 0.9891332387924194
+        }
+      ],
+      "worst_matched_segment": {
+        "expert_segment": 2,
+        "learner_segment": 3,
+        "similarity": 0.9856867790222168
+      },
+      "worst_segment_index": 2,
+      "segment_similarities": [
+        0.989551842212677,
+        0.9869725704193115,
+        0.9856867790222168,
+        0.9891332387924194
+      ],
+      "mean_segment_similarity": 0.9878361076116562,
+      "min_segment_similarity": 0.9856867790222168,
+      "segment_similarity_variance": 2.497901097298083e-06,
+      "segment_similarity_std": 0.0015804749594024207,
+      "segment_consistency": 0.9984195250405976,
+      "weighted_similarity": 0.9861166447401046,
+      "similarity_gap": 0.002149328589439392,
+      "mismatch_penalty": 0.0014697830345703012,
+      "final_similarity": 0.9846468617055343,
+      "linear_score": 99.23234308527671,
+      "score_gamma": 6.0,
+      "calibrated_score": 95.48155351951402,
+      "score_mean_weight": 0.2,
+      "score_min_weight": 0.8,
+      "score_gap_penalty_weight": 0.5,
+      "score_std_penalty_weight": 0.25,
+      "scoring_note": "temporary heuristic, not a validated rubric"
+    }
+  },
+  "confidences": {
+    "overall": 0.72,
+    "same_task": null,
+    "score": 0.72,
+    "explanation": null
+  },
+  "explanation": {
+    "text": "This comparison uses real V-JEPA 2.1 encoder embeddings on multiple temporal segments from the expert and learner clips. Segment matching now uses a small monotonic best-match strategy over the full similarity matrix so it can better tolerate pacing differences. The final similarity still applies a min-heavy local-mismatch penalty, and the 0-100 score uses a stricter nonlinear calibration. This remains a temporary heuristic rather than a final evaluator.",
+    "strengths": [
+      "Uses real V-JEPA 2.1 encoder embeddings",
+      "Segment-wise semantic similarity based comparison with no external VLM used"
+    ],
+    "weaknesses": [
+      "Temporal alignment is still coarse because matching is segment-by-segment",
+      "This remains a semantic similarity signal rather than a calibrated skill rubric"
+    ],
+    "raw_vlm_output": null,
+    "structured_notes": null
+  },
+  "warnings": []
+}
