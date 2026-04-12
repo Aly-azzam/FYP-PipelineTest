@@ -1,0 +1,51 @@
+{
+  "run_name": "gpu_sam2_10s_stride3",
+  "started_at": "2026-04-12T07:36:43.661944",
+  "ended_at": "2026-04-12T07:37:34.111482",
+  "wall_time_sec": 50.44929790000015,
+  "inputs": {
+    "expert_video": "test_videos\\expert.mp4",
+    "learner_video": "test_videos\\learner.mp4",
+    "expert_time_seconds": 1.0,
+    "learner_time_seconds": 1.0,
+    "expert_point_xy": [
+      309,
+      150
+    ],
+    "learner_point_xy": [
+      287,
+      166
+    ],
+    "analysis_mode": "first_n_seconds",
+    "max_seconds": 10.0,
+    "frame_stride": 3,
+    "gpu_index": 0,
+    "poll_interval": 0.5
+  },
+  "profiler_summary": {
+    "sample_count": 98,
+    "duration_sec_profiled": 50.43263329999991,
+    "process_tree_cpu_percent_avg": 318.0857142857143,
+    "process_tree_cpu_percent_max": 811.5,
+    "system_cpu_percent_avg": 37.19489795918367,
+    "system_cpu_percent_max": 78.7,
+    "process_tree_ram_mb_avg": 1496.0271444515306,
+    "process_tree_ram_mb_max": 2413.5390625,
+    "system_ram_percent_avg": 79.81122448979592,
+    "system_ram_percent_max": 86.2,
+    "gpu_util_percent_avg": 46.55102040816327,
+    "gpu_util_percent_max": 99.0,
+    "gpu_mem_used_mb_avg": 2769.8254544005104,
+    "gpu_mem_used_mb_max": 3710.15625,
+    "gpu_name": "NVIDIA GeForce RTX 3060 Laptop GPU"
+  },
+  "files": {
+    "result_json": "benchmark_outputs\\gpu_sam2_10s_stride3_result.json",
+    "raw_bundle_json": "benchmark_outputs\\gpu_sam2_10s_stride3_raw_bundle.json",
+    "metrics_bundle_json": "benchmark_outputs\\gpu_sam2_10s_stride3_metrics_bundle.json",
+    "resource_csv": "benchmark_outputs\\gpu_sam2_10s_stride3_resource_timeline.csv",
+    "resource_plot_png": "benchmark_outputs\\gpu_sam2_10s_stride3_resource_plot.png"
+  },
+  "pipeline_result_available": true,
+  "error": null
+}

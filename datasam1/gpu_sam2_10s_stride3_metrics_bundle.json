@@ -1,0 +1,1904 @@
+{
+  "expert_metrics_json_path": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\expert_sam2_raw_metrics.json",
+  "learner_metrics_json_path": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\learner_sam2_raw_metrics.json",
+  "expert_metrics_json": {
+    "run": {
+      "run_id": "a111f0dcf1f849e2aacc385b40984be4",
+      "source_raw_json": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\expert_sam2_raw.json",
+      "pipeline_name": "sam2_video_segmentation_metrics",
+      "created_at": "2026-04-12T07:36:43.684942",
+      "metrics_schema_version": "1.0"
+    },
+    "summary_metrics": {
+      "total_frames": 100,
+      "frames_with_objects": 100,
+      "frames_without_objects": 0,
+      "detection_rate": 1.0,
+      "total_tracks": 1,
+      "mean_track_length_frames": 100,
+      "max_track_length_frames": 100,
+      "track_fragmentation_count": 99,
+      "mean_mask_area_px": 3061.94,
+      "mask_area_std_px": 721.1144267035572,
+      "mean_centroid_speed_px_per_frame": 9.836668912922601,
+      "max_centroid_speed_px_per_frame": 107.46627377926528,
+      "mean_bbox_iou_temporal": 0.8008808310910197,
+      "occlusion_recovery_rate": null
+    },
+    "track_metrics": [
+      {
+        "track_id": 1,
+        "class_name": "prompted_object",
+        "start_frame": 0,
+        "end_frame": 297,
+        "track_length_frames": 100,
+        "visibility_ratio": 1.0,
+        "mean_mask_area_px": 3061.94,
+        "mask_area_std_px": 721.1144267035572,
+        "mean_centroid_speed_px_per_frame": 9.836668912922601,
+        "max_centroid_speed_px_per_frame": 107.46627377926528,
+        "trajectory_length_px": 973.8302223793373,
+        "temporal_stability_score": 0.8008808310910197,
+        "fragmented": true,
+        "fragmentation_count": 99,
+        "mean_bbox_iou_temporal": 0.8008808310910197
+      }
+    ],
+    "per_frame_metrics": [
+      {
+        "frame_index": 0,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2755,
+        "mean_centroid_speed_px_per_frame": null
+      },
+      {
+        "frame_index": 3,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2756,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 6,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2754,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 9,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2753,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 12,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2752,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 15,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2753,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 18,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2771,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 21,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2773,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 24,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2812,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 27,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2842,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 30,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2786,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 33,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2853,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 36,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2887,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 39,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2884,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 42,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2886,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 45,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2889,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 48,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2922,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 51,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2979,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 54,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3015,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 57,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3041,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 60,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3100,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 63,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3107,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 66,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3128,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 69,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3144,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 72,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3104,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 75,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3126,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 78,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3211,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 81,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3157,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 84,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3255,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 87,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3268,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 90,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3200,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 93,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3217,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 96,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3217,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 99,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3222,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 102,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3220,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 105,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3228,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 108,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3148,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 111,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3094,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 114,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3030,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 117,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2974,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 120,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2972,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 123,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3016,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 126,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2939,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 129,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2954,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 132,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3004,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 135,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2935,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 138,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2951,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 141,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3015,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 144,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3076,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 147,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3029,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 150,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3108,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 153,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3074,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 156,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3177,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 159,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3146,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 162,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3100,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 165,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3167,
+        "mean_centroid_speed_px_per_frame": 3.1622776601683795
+      },
+      {
+        "frame_index": 168,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3125,
+        "mean_centroid_speed_px_per_frame": 2.8284271247461903
+      },
+      {
+        "frame_index": 171,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3199,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 174,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3247,
+        "mean_centroid_speed_px_per_frame": 3.1622776601683795
+      },
+      {
+        "frame_index": 177,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3297,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 180,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3282,
+        "mean_centroid_speed_px_per_frame": 3.1622776601683795
+      },
+      {
+        "frame_index": 183,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3373,
+        "mean_centroid_speed_px_per_frame": 2.8284271247461903
+      },
+      {
+        "frame_index": 186,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3492,
+        "mean_centroid_speed_px_per_frame": 3.605551275463989
+      },
+      {
+        "frame_index": 189,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3475,
+        "mean_centroid_speed_px_per_frame": 3.1622776601683795
+      },
+      {
+        "frame_index": 192,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3537,
+        "mean_centroid_speed_px_per_frame": 25.709920264364882
+      },
+      {
+        "frame_index": 195,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 4575,
+        "mean_centroid_speed_px_per_frame": 21.93171219946131
+      },
+      {
+        "frame_index": 198,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 7686,
+        "mean_centroid_speed_px_per_frame": 83.72574275573791
+      },
+      {
+        "frame_index": 201,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2653,
+        "mean_centroid_speed_px_per_frame": 81.02468759581859
+      },
+      {
+        "frame_index": 204,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 1845,
+        "mean_centroid_speed_px_per_frame": 29.0
+      },
+      {
+        "frame_index": 207,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2020,
+        "mean_centroid_speed_px_per_frame": 16.492422502470642
+      },
+      {
+        "frame_index": 210,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2021,
+        "mean_centroid_speed_px_per_frame": 58.309518948453004
+      },
+      {
+        "frame_index": 213,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2074,
+        "mean_centroid_speed_px_per_frame": 44.553338819890925
+      },
+      {
+        "frame_index": 216,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3063,
+        "mean_centroid_speed_px_per_frame": 44.64302857109943
+      },
+      {
+        "frame_index": 219,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 4413,
+        "mean_centroid_speed_px_per_frame": 25.238858928247925
+      },
+      {
+        "frame_index": 222,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 5789,
+        "mean_centroid_speed_px_per_frame": 107.46627377926528
+      },
+      {
+        "frame_index": 225,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2462,
+        "mean_centroid_speed_px_per_frame": 40.792156108742276
+      },
+      {
+        "frame_index": 228,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 1493,
+        "mean_centroid_speed_px_per_frame": 14.212670403551895
+      },
+      {
+        "frame_index": 231,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 1496,
+        "mean_centroid_speed_px_per_frame": 10.0
+      },
+      {
+        "frame_index": 234,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 1465,
+        "mean_centroid_speed_px_per_frame": 40.311288741492746
+      },
+      {
+        "frame_index": 237,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 1740,
+        "mean_centroid_speed_px_per_frame": 22.360679774997898
+      },
+      {
+        "frame_index": 240,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2472,
+        "mean_centroid_speed_px_per_frame": 36.61966684720111
+      },
+      {
+        "frame_index": 243,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2760,
+        "mean_centroid_speed_px_per_frame": 25.059928172283335
+      },
+      {
+        "frame_index": 246,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2834,
+        "mean_centroid_speed_px_per_frame": 33.52610922848042
+      },
+      {
+        "frame_index": 249,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2885,
+        "mean_centroid_speed_px_per_frame": 14.142135623730951
+      },
+      {
+        "frame_index": 252,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2978,
+        "mean_centroid_speed_px_per_frame": 11.704699910719626
+      },
+      {
+        "frame_index": 255,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2999,
+        "mean_centroid_speed_px_per_frame": 4.47213595499958
+      },
+      {
+        "frame_index": 258,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2960,
+        "mean_centroid_speed_px_per_frame": 3.1622776601683795
+      },
+      {
+        "frame_index": 261,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2805,
+        "mean_centroid_speed_px_per_frame": 9.848857801796104
+      },
+      {
+        "frame_index": 264,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2728,
+        "mean_centroid_speed_px_per_frame": 18.35755975068582
+      },
+      {
+        "frame_index": 267,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2891,
+        "mean_centroid_speed_px_per_frame": 17.0
+      },
+      {
+        "frame_index": 270,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3167,
+        "mean_centroid_speed_px_per_frame": 21.02379604162864
+      },
+      {
+        "frame_index": 273,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3322,
+        "mean_centroid_speed_px_per_frame": 6.082762530298219
+      },
+      {
+        "frame_index": 276,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3346,
+        "mean_centroid_speed_px_per_frame": 7.280109889280518
+      },
+      {
+        "frame_index": 279,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3403,
+        "mean_centroid_speed_px_per_frame": 5.0
+      },
+      {
+        "frame_index": 282,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3627,
+        "mean_centroid_speed_px_per_frame": 7.0710678118654755
+      },
+      {
+        "frame_index": 285,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3600,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 288,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3538,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 291,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3505,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 294,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3459,
+        "mean_centroid_speed_px_per_frame": 2.8284271247461903
+      },
+      {
+        "frame_index": 297,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3417,
+        "mean_centroid_speed_px_per_frame": 4.123105625617661
+      }
+    ],
+    "warnings": [
+      "No semantic class verification beyond provided prompts",
+      "Mask quality depends on initialization/prompt quality"
+    ]
+  },
+  "learner_metrics_json": {
+    "run": {
+      "run_id": "a111f0dcf1f849e2aacc385b40984be4",
+      "source_raw_json": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\learner_sam2_raw.json",
+      "pipeline_name": "sam2_video_segmentation_metrics",
+      "created_at": "2026-04-12T07:36:43.684942",
+      "metrics_schema_version": "1.0"
+    },
+    "summary_metrics": {
+      "total_frames": 100,
+      "frames_with_objects": 100,
+      "frames_without_objects": 0,
+      "detection_rate": 1.0,
+      "total_tracks": 1,
+      "mean_track_length_frames": 100,
+      "max_track_length_frames": 100,
+      "track_fragmentation_count": 99,
+      "mean_mask_area_px": 3221,
+      "mask_area_std_px": 234.10920528676354,
+      "mean_centroid_speed_px_per_frame": 1.963491416605847,
+      "max_centroid_speed_px_per_frame": 26.076809620810597,
+      "mean_bbox_iou_temporal": 0.9487365521400628,
+      "occlusion_recovery_rate": null
+    },
+    "track_metrics": [
+      {
+        "track_id": 1,
+        "class_name": "prompted_object",
+        "start_frame": 0,
+        "end_frame": 297,
+        "track_length_frames": 100,
+        "visibility_ratio": 1.0,
+        "mean_mask_area_px": 3221,
+        "mask_area_std_px": 234.10920528676354,
+        "mean_centroid_speed_px_per_frame": 1.963491416605847,
+        "max_centroid_speed_px_per_frame": 26.076809620810597,
+        "trajectory_length_px": 194.3856502439789,
+        "temporal_stability_score": 0.9487365521400628,
+        "fragmented": true,
+        "fragmentation_count": 99,
+        "mean_bbox_iou_temporal": 0.9487365521400628
+      }
+    ],
+    "per_frame_metrics": [
+      {
+        "frame_index": 0,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3017,
+        "mean_centroid_speed_px_per_frame": null
+      },
+      {
+        "frame_index": 3,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3019,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 6,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3083,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 9,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3027,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 12,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3032,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 15,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3045,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 18,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2952,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 21,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2941,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 24,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3044,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 27,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3184,
+        "mean_centroid_speed_px_per_frame": 3.605551275463989
+      },
+      {
+        "frame_index": 30,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3282,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 33,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3394,
+        "mean_centroid_speed_px_per_frame": 2.8284271247461903
+      },
+      {
+        "frame_index": 36,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3494,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 39,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3083,
+        "mean_centroid_speed_px_per_frame": 7.211102550927978
+      },
+      {
+        "frame_index": 42,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3122,
+        "mean_centroid_speed_px_per_frame": 2.8284271247461903
+      },
+      {
+        "frame_index": 45,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3129,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 48,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3159,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 51,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3181,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 54,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3205,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 57,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3264,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 60,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3270,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 63,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3228,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 66,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3278,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 69,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3271,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 72,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3305,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 75,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3278,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 78,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3281,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 81,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3287,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 84,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3178,
+        "mean_centroid_speed_px_per_frame": 5.385164807134504
+      },
+      {
+        "frame_index": 87,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3157,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 90,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3316,
+        "mean_centroid_speed_px_per_frame": 3.605551275463989
+      },
+      {
+        "frame_index": 93,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3275,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 96,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3221,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 99,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3204,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 102,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3168,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 105,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3201,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 108,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3179,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 111,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3215,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 114,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3182,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 117,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3186,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 120,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3214,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 123,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3241,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 126,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3263,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 129,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3268,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 132,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3261,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 135,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3281,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 138,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3285,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 141,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3283,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 144,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3293,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 147,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3269,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 150,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3295,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 153,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3302,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 156,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3302,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 159,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3321,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 162,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3344,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 165,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3359,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 168,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3402,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 171,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3443,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 174,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3445,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 177,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3448,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 180,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3474,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 183,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3458,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 186,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3391,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 189,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3473,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 192,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3408,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 195,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3388,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 198,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3413,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 201,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3397,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 204,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3439,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 207,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3441,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 210,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3439,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 213,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3532,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 216,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3518,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 219,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3516,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 222,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3439,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 225,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3525,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 228,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3459,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 231,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3539,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 234,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3482,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 237,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3485,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 240,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3646,
+        "mean_centroid_speed_px_per_frame": 6.082762530298219
+      },
+      {
+        "frame_index": 243,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3867,
+        "mean_centroid_speed_px_per_frame": 13.416407864998739
+      },
+      {
+        "frame_index": 246,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3537,
+        "mean_centroid_speed_px_per_frame": 26.076809620810597
+      },
+      {
+        "frame_index": 249,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 3124,
+        "mean_centroid_speed_px_per_frame": 15.297058540778355
+      },
+      {
+        "frame_index": 252,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2951,
+        "mean_centroid_speed_px_per_frame": 17.46424919657298
+      },
+      {
+        "frame_index": 255,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2765,
+        "mean_centroid_speed_px_per_frame": 8.54400374531753
+      },
+      {
+        "frame_index": 258,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2763,
+        "mean_centroid_speed_px_per_frame": 4.123105625617661
+      },
+      {
+        "frame_index": 261,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2796,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 264,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2823,
+        "mean_centroid_speed_px_per_frame": 2.0
+      },
+      {
+        "frame_index": 267,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2749,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 270,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2728,
+        "mean_centroid_speed_px_per_frame": 0.0
+      },
+      {
+        "frame_index": 273,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2732,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 276,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2792,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 279,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2795,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 282,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2720,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      },
+      {
+        "frame_index": 285,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2838,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 288,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2865,
+        "mean_centroid_speed_px_per_frame": 1.0
+      },
+      {
+        "frame_index": 291,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2878,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 294,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2908,
+        "mean_centroid_speed_px_per_frame": 2.23606797749979
+      },
+      {
+        "frame_index": 297,
+        "objects_detected": 1,
+        "active_track_ids": [
+          1
+        ],
+        "total_mask_area_px": 2951,
+        "mean_centroid_speed_px_per_frame": 1.4142135623730951
+      }
+    ],
+    "warnings": [
+      "No semantic class verification beyond provided prompts",
+      "Mask quality depends on initialization/prompt quality"
+    ]
+  }
+}

@@ -10,3 +10,16 @@ benchmark_outputs/
 # OS / editor
 .DS_Store
 Thumbs.db
+
+
+# Secrets
+.env
+
+# Local / other branch folders you don't want in this branch
+backend/
+
+# Local outputs
+mediapipeGraphs/
+
+# Local media
+*.mp4

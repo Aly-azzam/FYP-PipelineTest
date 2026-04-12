@@ -241,23 +241,24 @@ def extract_frame_range_to_folder(
     saved_paths = []
     saved_absolute_frame_indices = []
 
+    cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame_index)
     current_frame_index = start_frame_index
 
     while current_frame_index <= end_frame_index:
-        cap.set(cv2.CAP_PROP_POS_FRAMES, current_frame_index)
         success, frame = cap.read()
 
         if not success:
             break
 
-        frame_name = f"{current_frame_index:06d}.jpg"
-        frame_path = os.path.join(output_folder, frame_name)
+        if (current_frame_index - start_frame_index) % frame_stride == 0:
+            frame_name = f"{current_frame_index:06d}.jpg"
+            frame_path = os.path.join(output_folder, frame_name)
 
-        cv2.imwrite(frame_path, frame)
-        saved_paths.append(frame_path)
-        saved_absolute_frame_indices.append(current_frame_index)
+            cv2.imwrite(frame_path, frame)
+            saved_paths.append(frame_path)
+            saved_absolute_frame_indices.append(current_frame_index)
 
-        current_frame_index += frame_stride
+        current_frame_index += 1
 
     cap.release()
 

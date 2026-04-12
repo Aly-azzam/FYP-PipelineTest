@@ -1,0 +1,94 @@
+{
+  "run": {
+    "run_id": "a111f0dcf1f849e2aacc385b40984be4",
+    "pipeline_name": "sam2_video_point_tracking",
+    "processing_time_sec": 50.203346967697144,
+    "created_at": "2026-04-12T07:36:43.684942",
+    "component_notes": {
+      "sam2_video": "device=cuda; analysis_mode=first_n_seconds; max_seconds=10.0; frame_stride=3",
+      "prompting": "single_positive_point_per_video",
+      "raw_json_export": "completed"
+    }
+  },
+  "expert_video": {
+    "path": "test_videos\\expert.mp4",
+    "annotated_video_path": "C:\\Users\\aliaz\\Desktop\\FYP-PipelineTest\\outputs\\tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\expert_annotated_web.mp4",
+    "raw_json_path": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\expert_sam2_raw.json",
+    "duration_sec": 25.366,
+    "fps": 30.00078845698967,
+    "width": 480,
+    "height": 368,
+    "analysis_start_frame_index": 0,
+    "analysis_end_frame_index": 299,
+    "analysis_frame_count": 100,
+    "requested_time_seconds": 1.0,
+    "selected_time_seconds": 0.9999737187910644,
+    "requested_absolute_frame_index": 30,
+    "selected_absolute_frame_index": 30,
+    "selected_local_frame_index": 10,
+    "frame_stride": 3,
+    "selected_point_xy": [
+      309,
+      150
+    ],
+    "detected_frame_count": 100
+  },
+  "learner_video": {
+    "path": "test_videos\\learner.mp4",
+    "annotated_video_path": "C:\\Users\\aliaz\\Desktop\\FYP-PipelineTest\\outputs\\tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\learner_annotated_web.mp4",
+    "raw_json_path": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\learner_sam2_raw.json",
+    "duration_sec": 22.933,
+    "fps": 30.000436052849604,
+    "width": 480,
+    "height": 368,
+    "analysis_start_frame_index": 0,
+    "analysis_end_frame_index": 299,
+    "analysis_frame_count": 100,
+    "requested_time_seconds": 1.0,
+    "selected_time_seconds": 0.9999854651162791,
+    "requested_absolute_frame_index": 30,
+    "selected_absolute_frame_index": 30,
+    "selected_local_frame_index": 10,
+    "frame_stride": 3,
+    "selected_point_xy": [
+      287,
+      166
+    ],
+    "detected_frame_count": 100
+  },
+  "overall_score": null,
+  "metrics": {
+    "joint_angle_deviation": null,
+    "trajectory_deviation": null,
+    "velocity_difference": null,
+    "tool_alignment_deviation": null,
+    "dtw_cost": null,
+    "semantic_similarity": null,
+    "optical_flow_similarity": null,
+    "extra": {
+      "expert_detected_frame_count": 100,
+      "learner_detected_frame_count": 100
+    }
+  },
+  "confidences": {
+    "overall": null,
+    "same_task": null,
+    "score": null,
+    "explanation": null
+  },
+  "explanation": {
+    "text": "SAM 2 video tracking completed and raw JSON exported.",
+    "strengths": [],
+    "weaknesses": [],
+    "raw_vlm_output": null,
+    "structured_notes": {
+      "expert_overlay_frame_count": 100,
+      "learner_overlay_frame_count": 100,
+      "expert_raw_json_path": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\expert_sam2_raw.json",
+      "learner_raw_json_path": "outputs/tmp_tracking_runs\\a111f0dcf1f849e2aacc385b40984be4\\json\\learner_sam2_raw.json"
+    }
+  },
+  "warnings": [
+    "score_not_computed"
+  ]
+}

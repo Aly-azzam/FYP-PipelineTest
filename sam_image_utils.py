@@ -8,6 +8,7 @@ checkpoint = "checkpoints/sam2_hiera_tiny.pt"
 model_cfg = "configs/sam2/sam2_hiera_t.yaml"
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+print("SAM image running on:", device)
 
 predictor = SAM2ImagePredictor(
     build_sam2(model_cfg, checkpoint, device=device)
