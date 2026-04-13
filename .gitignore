@@ -10,3 +10,9 @@ benchmark_outputs/
 # OS / editor
 .DS_Store
 Thumbs.db
+
+.env
+backend/
+mediapipeGraphs/
+test_videos/
+video.mp4
