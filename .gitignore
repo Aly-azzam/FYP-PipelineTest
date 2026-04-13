@@ -32,3 +32,15 @@ Thumbs.db
 *.zip
 *.rar
 *.7z
+
+
+
+backend/.tmp_outputs/
+backend/.tmp_uploads/
+backend/Fast-HaMeR/
+benchmark_outputs/
+mediapipeGraphs/
+outputs/
+sam2_repo/
+test_videos/
+video.mp4
