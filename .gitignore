@@ -1,0 +1,12 @@
+.env
+__pycache__/
+backend/.tmp_outputs/
+backend/.tmp_uploads/
+backend/Fast-HaMeR/
+backend/components/mediapipe/__pycache__/
+benchmark_outputs/
+mediapipeGraphs/
+outputs/
+sam2_repo/
+test_videos/
+video.mp4
