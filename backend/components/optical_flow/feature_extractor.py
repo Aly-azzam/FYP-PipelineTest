@@ -118,6 +118,31 @@ def _safe_mean(values: List[float]) -> float:
     return float(np.mean(values)) if values else 0.0
 
 
+def smooth_signal(values: List[float], window_size: int = 5) -> List[float]:
+    """
+    Smooth a 1D signal with a simple moving average.
+
+    Args:
+        values: Input list of numeric values
+        window_size: Smoothing window size
+
+    Returns:
+        Smoothed list with the same length as input
+    """
+    if window_size <= 1 or len(values) < window_size:
+        return values
+
+    smoothed: List[float] = []
+    half = window_size // 2
+
+    for i in range(len(values)):
+        start = max(0, i - half)
+        end = min(len(values), i + half + 1)
+        smoothed.append(float(np.mean(values[start:end])))
+
+    return smoothed
+
+
 def _compute_motion_stability_score(mean_magnitudes: List[float]) -> float:
     """
     Simple stability score in [0, 1].
@@ -138,7 +163,7 @@ def _compute_motion_stability_score(mean_magnitudes: List[float]) -> float:
         return 1.0
 
     std = float(np.std(arr))
-    coeff_var = std / avg  # coefficient of variation
+    coeff_var = std / avg
 
     stability = 1.0 / (1.0 + coeff_var)
     stability = float(np.clip(stability, 0.0, 1.0))
@@ -172,9 +197,19 @@ def build_video_flow_summary(
             motion_stability_score=0.0,
         )
 
-    mean_magnitudes = [f.mean_magnitude for f in frame_features]
+    mean_magnitudes = smooth_signal(
+        [f.mean_magnitude for f in frame_features],
+        window_size=5,
+    )
+
     max_magnitudes = [f.max_magnitude for f in frame_features]
-    motion_area_ratios = [f.motion_area_ratio for f in frame_features]
+
+    motion_area_ratios = smooth_signal(
+        [f.motion_area_ratio for f in frame_features],
+        window_size=5,
+    )
+
+    # Keep angles unsmoothed here because angles are circular values
     mean_angles = [f.mean_angle_deg for f in frame_features]
 
     avg_magnitude = _safe_mean(mean_magnitudes)

@@ -9,7 +9,11 @@ from typing import List
 import numpy as np
 
 from .farneback_service import FarnebackConfig, compute_video_optical_flow_features
-from .feature_extractor import build_video_flow_summary, compute_mean_angle_deg
+from .feature_extractor import (
+    build_video_flow_summary,
+    compute_mean_angle_deg,
+    smooth_signal,
+)
 from .schemas import (
     ComparisonInfo,
     ComparisonMetrics,
@@ -52,24 +56,61 @@ def _compute_curve_mae(values_a: List[float], values_b: List[float]) -> float:
     return float(np.mean(np.abs(arr_a - arr_b)))
 
 
+def _resample_signal(values: List[float], target_length: int = 100) -> List[float]:
+    """
+    Resample a 1D signal to a fixed target length using linear interpolation.
+    """
+    if not values:
+        return []
+    if len(values) == target_length:
+        return values
+    if len(values) == 1:
+        return [values[0]] * target_length
+
+    original_x = np.linspace(0.0, 1.0, num=len(values))
+    target_x = np.linspace(0.0, 1.0, num=target_length)
+    resampled = np.interp(target_x, original_x, values)
+    return [float(v) for v in resampled]
+
+
 def _compute_angle_curve_mae(
-    expert_angles: List[float],
-    learner_angles: List[float],
+    expert_frames: List[FrameFlowFeatures],
+    learner_frames: List[FrameFlowFeatures],
+    active_motion_threshold: float = 0.1,
 ) -> float:
-    if not expert_angles or not learner_angles:
+    """
+    Compute angle MAE only on active-motion frames.
+
+    Angle can be noisy when motion is tiny, so we ignore frames where both
+    expert and learner have very weak motion.
+    """
+    if not expert_frames or not learner_frames:
         return 0.0
 
-    diffs = [
-        _circular_angle_difference_deg(a, b)
-        for a, b in zip(expert_angles, learner_angles)
-    ]
+    diffs: list[float] = []
+
+    for expert_frame, learner_frame in zip(expert_frames, learner_frames):
+        expert_mag = expert_frame.mean_magnitude
+        learner_mag = learner_frame.mean_magnitude
+
+        if expert_mag < active_motion_threshold and learner_mag < active_motion_threshold:
+            continue
+
+        diff = _circular_angle_difference_deg(
+            expert_frame.mean_angle_deg,
+            learner_frame.mean_angle_deg,
+        )
+        diffs.append(diff)
+
+    if not diffs:
+        return 0.0
+
     return _safe_mean(diffs)
 
 
 def _compute_global_direction_deg(frames: List[FrameFlowFeatures]) -> float:
     """
     Compute a proper circular mean of frame directions, weighted by frame mean magnitude.
-    This is much better than a normal arithmetic mean for angles.
     """
     if not frames:
         return 0.0
@@ -82,7 +123,6 @@ def _compute_global_direction_deg(frames: List[FrameFlowFeatures]) -> float:
 def _compute_robust_peak_magnitude(frames: List[FrameFlowFeatures]) -> float:
     """
     More stable than raw max(): use the 95th percentile of per-frame max magnitude.
-    This reduces the effect of extreme outliers.
     """
     if not frames:
         return 0.0
@@ -95,14 +135,31 @@ def _build_comparison_metrics(
     expert_frames: List[FrameFlowFeatures],
     learner_frames: List[FrameFlowFeatures],
 ) -> ComparisonMetrics:
-    expert_mean_magnitudes = [f.mean_magnitude for f in expert_frames]
-    learner_mean_magnitudes = [f.mean_magnitude for f in learner_frames]
+    # Smooth curves first
+    expert_mean_magnitudes = smooth_signal(
+        [f.mean_magnitude for f in expert_frames],
+        window_size=5,
+    )
+    learner_mean_magnitudes = smooth_signal(
+        [f.mean_magnitude for f in learner_frames],
+        window_size=5,
+    )
 
-    expert_motion_areas = [f.motion_area_ratio for f in expert_frames]
-    learner_motion_areas = [f.motion_area_ratio for f in learner_frames]
+    expert_motion_areas = smooth_signal(
+        [f.motion_area_ratio for f in expert_frames],
+        window_size=5,
+    )
+    learner_motion_areas = smooth_signal(
+        [f.motion_area_ratio for f in learner_frames],
+        window_size=5,
+    )
 
-    expert_angles = [f.mean_angle_deg for f in expert_frames]
-    learner_angles = [f.mean_angle_deg for f in learner_frames]
+    # Normalize both curves to same sample length
+    expert_mean_magnitudes = _resample_signal(expert_mean_magnitudes, target_length=100)
+    learner_mean_magnitudes = _resample_signal(learner_mean_magnitudes, target_length=100)
+
+    expert_motion_areas = _resample_signal(expert_motion_areas, target_length=100)
+    learner_motion_areas = _resample_signal(learner_motion_areas, target_length=100)
 
     expert_global_direction = _compute_global_direction_deg(expert_frames)
     learner_global_direction = _compute_global_direction_deg(learner_frames)
@@ -126,13 +183,16 @@ def _build_comparison_metrics(
         expert_mean_magnitudes,
         learner_mean_magnitudes,
     )
-    angle_curve_mae_deg = _compute_angle_curve_mae(
-        expert_angles,
-        learner_angles,
-    )
     motion_area_curve_mae = _compute_curve_mae(
         expert_motion_areas,
         learner_motion_areas,
+    )
+
+    # Keep angle logic active-motion-aware, but do not smooth/resample angle directly yet
+    angle_curve_mae_deg = _compute_angle_curve_mae(
+        expert_frames,
+        learner_frames,
+        active_motion_threshold=0.1,
     )
 
     return ComparisonMetrics(
