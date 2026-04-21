@@ -13,8 +13,12 @@ backend/Fast-HaMeR/
 
 # Generated JSON/plots/logs from local experiments
 outputs/
+benchmark_outputs/
 *.csv
 *.png
 
 # Local test media
 *.mp4
+
+# Local repos / model worktrees
+sam2_repo/
